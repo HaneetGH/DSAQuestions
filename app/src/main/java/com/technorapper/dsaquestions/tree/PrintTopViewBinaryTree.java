@@ -115,6 +115,7 @@ public class PrintTopViewBinaryTree {
         }
     }
 
+
     // Driver Code
     public static void main(String args[]) {
         Node root = newNode(1);
