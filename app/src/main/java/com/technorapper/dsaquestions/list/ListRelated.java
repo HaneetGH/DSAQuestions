@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ListRelated {
 
+
     public static void main(String[] args) {
         List<Integer> integerList = new ArrayList<>();
         for (int i = 0; i < 5; i++)
@@ -14,4 +15,5 @@ public class ListRelated {
 
         System.out.println(integerList);
     }
+
 }
