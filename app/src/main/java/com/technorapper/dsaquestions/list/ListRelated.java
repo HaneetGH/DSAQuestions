@@ -26,5 +26,4 @@ public class ListRelated {
 
         System.out.println(sum);
     }
-
 }
