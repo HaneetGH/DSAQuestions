@@ -23,7 +23,6 @@ public class ListRelated {
             sum=i+sum;
             i+=1;
         }
-
         System.out.println(sum);
     }
 }
