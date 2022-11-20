@@ -126,4 +126,22 @@ public class ListRelated {
         }
         return sum;
     }
+    public static int maxBandwith2(List<List<Integer>> list, int n) {
+        int[] req = new int[n];
+        for (List<Integer> item1 : list) {
+            for (int i = 0; i < n; i++) {
+                if (req[i] < item1.get(2)) {
+                    req[i] = item1.get(2);
+                    break;
+                }
+            }
+        }
+
+
+        int sum = 0;
+        for (int i : req) {
+            sum += i;
+        }
+        return sum;
+    }
 }
