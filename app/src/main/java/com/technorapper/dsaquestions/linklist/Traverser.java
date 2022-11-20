@@ -113,15 +113,15 @@ public class Traverser {
 
 
     public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        List<List<Integer>> result = new LinkedList<List<Integer>>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> result = new LinkedList<>();
         if (root == null) return result;
         ;
         queue.offer(root);
         while (!queue.isEmpty()) {
             int queueSize = queue.size();
-            List<Integer> sublist = new LinkedList<Integer>();
-            for (int i = queue.size(); i > 0; i--) {
+            List<Integer> sublist = new LinkedList<>();
+            for (int i = queueSize; i > 0; i--) {
                 if (queue.peek().left != null) queue.offer(queue.peek().left);
                 if (queue.peek().right != null) queue.offer(queue.peek().right);
                 sublist.add(queue.poll().val);
