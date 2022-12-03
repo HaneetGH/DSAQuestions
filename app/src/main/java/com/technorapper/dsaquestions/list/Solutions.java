@@ -11,7 +11,10 @@ public class Solutions {
 
     public static void main(String[] args) {
         //lengthOfLongestSubstring("tmmzuxt");
-        longestPalindrome("bb");
+        // longestPalindrome("bb");
+        int[] nums1 = {1, 3}, nums2 = {2};
+        findMedianSortedArrays(nums1, nums2);
+
     }
 
 
@@ -67,5 +70,22 @@ public class Solutions {
         }
 
         return true;
+    }
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] sortedJoinArray = new int[nums1.length + nums2.length];
+
+        int largestInt = Math.max(nums1.length, nums2.length);
+
+        for (int i = 0; i < largestInt; i++) {
+
+            sortedJoinArray[i] = Math.min(nums1[i], nums2.length>i?nums2[i]:nums1[i]);
+            if ((i + 1) < largestInt)
+                sortedJoinArray[i+1] = Math.max(nums1[i], nums2.length>i?nums2[i]:nums1[i]);
+
+        }
+
+        return 0;
+
     }
 }
