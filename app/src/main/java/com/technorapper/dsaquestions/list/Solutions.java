@@ -12,7 +12,7 @@ public class Solutions {
     public static void main(String[] args) {
         //lengthOfLongestSubstring("tmmzuxt");
         // longestPalindrome("bb");
-        int[] nums1 = {1, 3}, nums2 = {2};
+        int[] nums1 = {1, 2}, nums2 = {3, 4};
         findMedianSortedArrays(nums1, nums2);
 
     }
@@ -30,11 +30,9 @@ public class Solutions {
             if (newString.indexOf(charArray[i]) == -1) {
 
                 newString += charArray[i];
-                if (newString.length() > maxCount)
-                    maxCount = newString.length();
+                if (newString.length() > maxCount) maxCount = newString.length();
             } else {
-                if (newString.length() > maxCount)
-                    maxCount = newString.length();
+                if (newString.length() > maxCount) maxCount = newString.length();
                 newString = newString.substring(newString.indexOf(charArray[i]) + 1);
                 newString += charArray[i];
             }
@@ -75,17 +73,29 @@ public class Solutions {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] sortedJoinArray = new int[nums1.length + nums2.length];
 
-        int largestInt = Math.max(nums1.length, nums2.length);
-
-        for (int i = 0; i < largestInt; i++) {
-
-            sortedJoinArray[i] = Math.min(nums1[i], nums2.length>i?nums2[i]:nums1[i]);
-            if ((i + 1) < largestInt)
-                sortedJoinArray[i+1] = Math.max(nums1[i], nums2.length>i?nums2[i]:nums1[i]);
-
+        int i = 0, j = 0, k = 0;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] < nums2[j]) {
+                sortedJoinArray[k++] = nums1[i++];
+            } else {
+                sortedJoinArray[k++] = nums2[j++];
+            }
+        }
+        while (i < nums1.length) {
+            sortedJoinArray[k++] = nums1[i++];
+        }
+        while (j < nums2.length) {
+            sortedJoinArray[k++] = nums2[j++];
+        }
+        double result = 0;
+        if (sortedJoinArray.length % 2 != 0) {
+            result = sortedJoinArray[sortedJoinArray.length / 2];
+        } else {
+            result = sortedJoinArray[sortedJoinArray.length / 2] + sortedJoinArray[(sortedJoinArray.length / 2) - 1];
+            result = result / 2;
         }
 
-        return 0;
+        return result;
 
     }
 }
